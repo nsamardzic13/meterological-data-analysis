@@ -1,0 +1,9 @@
+# junk
+.ipynb_checkpoints/
+
+# initial data directory
+data/
+
+# download files
+download_data.py
+extract_lat_lng.py
