@@ -4,6 +4,9 @@
 # initial data directory
 data/
 
+# venv 
+venv/
+
 # download files
 download_data.py
 extract_lat_lng.py
