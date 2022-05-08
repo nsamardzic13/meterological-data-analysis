@@ -2,11 +2,10 @@
 .ipynb_checkpoints/
 
 # initial data directory
-data/
+original_data_files/
 
 # venv 
 venv/
 
 # download files
-download_data.py
-extract_lat_lng.py
+helper_scirpts/

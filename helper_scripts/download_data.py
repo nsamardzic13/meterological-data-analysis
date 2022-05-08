@@ -1,0 +1,58 @@
+from WorldWeatherPy import RetrieveByAttribute, DetermineListOfAttributes
+import os
+
+
+api_key = '4a848e8e837841ee83b112608213110'    # totahe3709@ecofreon.com
+# api_key = '3a3f36a6d76f41ed961165123210311'    # jksqtnzfqkmyejldoo@mrvpt.com
+# api_key = '2c342516593d46a08c6214333210311'    # zkxsaopwvbdghrjkzm@pptrvv.com
+
+
+
+my_attributes = DetermineListOfAttributes(api_key, True).retrieve_list_of_options()
+
+"""
+Sve opcije - rezultat komande iznad:
+'sunrise', 'sunset', 'moonrise', 'moonset', 'moon_phase', 'moon_illumination', 
+'time', 'tempC', 'tempF', 'windspeedMiles', 'windspeedKmph', 'winddirDegree', 'winddir16Point', 
+'weatherCode', 'weatherIconUrl', 'weatherDesc', 
+'precipMM', 'precipInches', 'humidity', 'visibility', 'visibilityMiles', 
+'pressure', 'pressureInches', 'cloudcover', 
+'HeatIndexC', 'HeatIndexF', 'DewPointC', 'DewPointF', 'WindChillC', 'WindChillF', 'WindGustMiles', 'WindGustKmph', 
+'FeelsLikeC', 'FeelsLikeF', 'uvIndex'
+"""
+
+done = ['Umag', 'Novigrad', 'Rovinj', 'Porec', 'Vrsar', 'Pazin', 'Buzet', 'Fazana', 'Pula',
+        'Medulin', 'Rabac', 'Opatija', 'Rijeka', 'Kostrena', 'Bakar', 'Kraljevica', 'Crikvenica', 'Delnice',
+        'Vrbovsko', 'Ogulin', 'Senj', 'Malinska', 'Baska',
+        'Bale', 'Boljun', 'Buje',
+        'Funtana', 'Hum', 'Kanfanar', 'Karojba',
+        'Labin', 'Lupoglav', 'Medulin', 'Motovun', 'Novigrad',
+        'Pazin', 'Porec', 'Premantura', 'Pula', 'Puntera',
+        'Racice', 'Radetici', 'Radmani', 'Radosi', 'Radovani', 'Rajici',
+        'Rovinj', 'Tar', 'Umag', 'Vodnjan', 'Vrsar', 'Bakar', 'Banjol', 'Bribir', 'Cernik', 'Cres', 'Crikvenica',
+        'Delnice', 'Fuzine', 'Drazice',
+        'Drenova', 'Hreljin', 'Jadranovo', 'Kampor', 'Kastav', 'Klana', 'Kostrena',
+        'Klenovica', 'Kraljevica', 'Krasica', 'Krk', 'Kukuljanovo', 'Lopar',
+        'Matulji', 'Mrkopalj', 'Njivice', 'Novi+Vinodolski', 'Ogulin', 'Opatija', 'Tribalj',
+        'Pag', 'Podhum', 'Predosljica', 'Prempen', 'Prezid', 'Punat', 'Rab', 'Selce', 'Skrad',
+        'Supetarska+Draga', 'Vrbnik', 'Volosko']
+
+# istarska = []
+#
+# istarska = [x for x in istarska if x not in done]
+
+pgz = ['Malinska']
+
+pgz = [x for x in pgz if x not in done]
+
+# for curr_location in istarska:
+#     curr_location += ''
+for curr_location in pgz:
+    curr_location += ''
+    ret_df = RetrieveByAttribute(api_key=api_key, attribute_list=my_attributes,
+                                 city=curr_location, start_date='2016-10-31', end_date='2021-10-31',
+                                 frequency=3, csv_directory=os.curdir).retrieve_hist_data()
+
+
+
+
