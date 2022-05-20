@@ -2,9 +2,7 @@ from WorldWeatherPy import RetrieveByAttribute, DetermineListOfAttributes
 import os
 
 
-api_key = '4a848e8e837841ee83b112608213110'    # totahe3709@ecofreon.com
-# api_key = '3a3f36a6d76f41ed961165123210311'    # jksqtnzfqkmyejldoo@mrvpt.com
-# api_key = '2c342516593d46a08c6214333210311'    # zkxsaopwvbdghrjkzm@pptrvv.com
+api_key = '377b23137a3f46139b9111449221105'    # wuwtpaffvtuxqasdtq@kvhrr.com
 
 
 
@@ -41,7 +39,7 @@ done = ['Umag', 'Novigrad', 'Rovinj', 'Porec', 'Vrsar', 'Pazin', 'Buzet', 'Fazan
 #
 # istarska = [x for x in istarska if x not in done]
 
-pgz = ['Malinska']
+pgz = ['Mali+Losinj']
 
 pgz = [x for x in pgz if x not in done]
 
@@ -51,7 +49,7 @@ for curr_location in pgz:
     curr_location += ''
     ret_df = RetrieveByAttribute(api_key=api_key, attribute_list=my_attributes,
                                  city=curr_location, start_date='2016-10-31', end_date='2021-10-31',
-                                 frequency=3, csv_directory=os.curdir).retrieve_hist_data()
+                                 frequency=3, csv_directory='original_data_files/').retrieve_hist_data()
 
 
 

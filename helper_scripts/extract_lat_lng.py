@@ -5,7 +5,7 @@ from opencage.geocoder import OpenCageGeocode
 api_key = 'ab6833b017cd4ee4a27dff46ceee2363'
 geocoder = OpenCageGeocode(api_key)
 
-all_files = os.listdir('016-Diplomski/data')
+all_files = os.listdir('original_data_files')
 all_files = [f for f in all_files if f[-3:] == 'csv' and f != 'geo_position.csv']
 
 all_cities = []
@@ -14,7 +14,7 @@ for file in all_files:
     city = city.replace('+', ' ')
     all_cities.append(city)
 
-file_name = 'geo_position.csv'
+file_name = 'data/geo_position.csv'
 if os.path.exists(file_name):
     file_mode = 'a'
     df = pd.read_csv(file_name)
