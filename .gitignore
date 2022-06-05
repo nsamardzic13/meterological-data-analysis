@@ -9,3 +9,8 @@ venv/
 
 # download files
 helper_scirpts/
+
+# remove data and results
+data/
+correlation_plots/
+svd_plots/
