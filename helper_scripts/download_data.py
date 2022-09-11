@@ -2,7 +2,7 @@ from WorldWeatherPy import RetrieveByAttribute, DetermineListOfAttributes
 import os
 
 
-api_key = '377b23137a3f46139b9111449221105'    # wuwtpaffvtuxqasdtq@kvhrr.com
+api_key = 'db9df7dfdaea4e0da13192716223108'    # wuwtpaffvtuxqasdtq@kvhrr.com
 
 
 
@@ -31,7 +31,7 @@ done = ['Umag', 'Novigrad', 'Rovinj', 'Porec', 'Vrsar', 'Pazin', 'Buzet', 'Fazan
         'Delnice', 'Fuzine', 'Drazice',
         'Drenova', 'Hreljin', 'Jadranovo', 'Kampor', 'Kastav', 'Klana', 'Kostrena',
         'Klenovica', 'Kraljevica', 'Krasica', 'Krk', 'Kukuljanovo', 'Lopar',
-        'Matulji', 'Mrkopalj', 'Njivice', 'Novi+Vinodolski', 'Ogulin', 'Opatija', 'Tribalj',
+        'Matulji', 'Mrkopalj', 'Njivice', 'Novi Vinodolski', 'Ogulin', 'Opatija', 'Tribalj',
         'Pag', 'Podhum', 'Predosljica', 'Prempen', 'Prezid', 'Punat', 'Rab', 'Selce', 'Skrad',
         'Supetarska+Draga', 'Vrbnik', 'Volosko']
 
@@ -39,15 +39,15 @@ done = ['Umag', 'Novigrad', 'Rovinj', 'Porec', 'Vrsar', 'Pazin', 'Buzet', 'Fazan
 #
 # istarska = [x for x in istarska if x not in done]
 
-pgz = ['Mali+Losinj']
+pgz = ['Prezid']
 
-pgz = [x for x in pgz if x not in done]
+# pgz = [x for x in pgz if x not in done]
 
 # for curr_location in istarska:
 #     curr_location += ''
 for curr_location in pgz:
-    curr_location += ''
-    ret_df = RetrieveByAttribute(api_key=api_key, attribute_list=my_attributes,
+#     curr_location += ''
+    ret_df = RetrieveByAttribute(api_key=api_key, attribute_list=['tempC'],
                                  city=curr_location, start_date='2016-10-31', end_date='2021-10-31',
                                  frequency=3, csv_directory='original_data_files/').retrieve_hist_data()
 
